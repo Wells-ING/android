@@ -1,0 +1,1 @@
+Volley是 Google 推出的 Android 异步网络请求框架和图片加载框架。

@@ -1,0 +1,7 @@
+﻿com.youth.banner:banner轮播图
+Android Banner 2.0 全新轮播控件，采用viewpager2为基础控件，支持AndroidX 
+
+使用注意事项：
+补充material才能正常使用。
+implementation 'com.google.android.material:material:1.1.0'
+

@@ -1,0 +1,1 @@
+GsonOrXmlFormat插件可以快速将json转为java bean 类
