@@ -28,4 +28,5 @@ dependencies {
     implementation files('libs/achartengine-1.1.0.jar')
     implementation files('libs/android-async-http-1.4.3.jar')
     implementation 'com.squareup.okhttp3:okhttp:4.4.0'
+    implementation files('libs/mysql-connector-java-5.0.5-bin.jar')
 }
