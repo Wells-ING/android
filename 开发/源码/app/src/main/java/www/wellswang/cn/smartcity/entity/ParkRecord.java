@@ -113,4 +113,21 @@ public class ParkRecord {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
+    @Override
+    public String toString() {
+        return "ParkRecord{" +
+                "id=" + id +
+                ", parkId=" + parkId +
+                ", entryTime=" + entryTime +
+                ", outTime=" + outTime +
+                ", plateNumber='" + plateNumber + '\'' +
+                ", monetary=" + monetary +
+                ", creteBy=" + creteBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

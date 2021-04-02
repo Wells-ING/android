@@ -6,7 +6,7 @@ import www.wellswang.cn.smartcity.service.personalCenterPage.LoginEvent;
 public class GetAllUserInfoTest {
     public static void main(String[] args) {
         String username = "admin";
-        User user = new LoginEvent().getAllUserInfo(username);
+        User user = new LoginEvent().getUserAllInfo(username);
         System.out.println(user.toString());
     }
 }

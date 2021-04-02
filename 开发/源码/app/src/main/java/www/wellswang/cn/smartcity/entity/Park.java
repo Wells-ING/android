@@ -22,7 +22,7 @@ public class Park {
     // 距离
     private Integer distance;
     // 创建停车场者
-    private User creteBy;
+    private User createBy;
     // 创建时间
     private Date createTime;
     // 更新停车场信息者
@@ -104,12 +104,12 @@ public class Park {
         this.distance = distance;
     }
 
-    public User getCreteBy() {
-        return creteBy;
+    public User getCreateBy() {
+        return createBy;
     }
 
-    public void setCreteBy(User creteBy) {
-        this.creteBy = creteBy;
+    public void setCreateBy(User createBy) {
+        this.createBy = createBy;
     }
 
     public Date getCreateTime() {
@@ -142,5 +142,25 @@ public class Park {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "Park{" +
+                "id=" + id +
+                ", parkName='" + parkName + '\'' +
+                ", allPark=" + allPark +
+                ", vacancy=" + vacancy +
+                ", priceCaps=" + priceCaps +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", rates=" + rates +
+                ", address='" + address + '\'' +
+                ", distance=" + distance +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

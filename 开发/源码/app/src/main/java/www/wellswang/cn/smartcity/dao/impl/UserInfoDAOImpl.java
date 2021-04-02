@@ -83,42 +83,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
     }
 
     @Override
-    public ArrayList<BusOrder> getAllBusOrderByUser(User user) {
-        String selectSQL = "SELECT * FROM bus_order WHERE userId = '" + user.getUserId() + "'";
-        ArrayList<BusOrder> busOrders = new ArrayList<>();
-        Connection conn = null;
-        Statement stm = null;
-        ResultSet rs = null;
-        try {
-            conn = DBUtil.getConnection();
-            stm = conn.createStatement();
-            rs = stm.executeQuery(selectSQL);
-            while(rs.next()) {
-                BusOrder currentBusOrder = new BusOrder();
-                currentBusOrder.setId(rs.getInt("id"));
-                currentBusOrder.setUserId(rs.getInt("userId"));
-                currentBusOrder.setOrderNum(rs.getString("orderNum"));
-                currentBusOrder.setPath(rs.getString("path"));
-                currentBusOrder.setStart(rs.getString("start"));
-                currentBusOrder.setEnd(rs.getString("end"));
-                currentBusOrder.setPrice(rs.getDouble("price"));
-                currentBusOrder.setCreateBy(new User(rs.getString("createBy")));
-                currentBusOrder.setCreateTime(rs.getDate("createTime"));
-                currentBusOrder.setUpdateBy(new User(rs.getString("updateBy")));
-                currentBusOrder.setUpdateTime(rs.getDate("updateTime"));
-                currentBusOrder.setRemark(rs.getString("remark"));
-                currentBusOrder.setStatus(rs.getInt("status"));
-                busOrders.add(currentBusOrder);
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeConnection(stm, rs);
-        }
-        return busOrders;
-    }
-
-    @Override
     public User getUserIdByUsername(String username) {
         String selectSQL = "SELECT * FROM user WHERE username = '" + username + "'";
         User returnUser = new User();
@@ -173,31 +137,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
             DBUtil.closeConnection(stm, rs);
         }
         return modifyFlag;
-    }
-
-    @Override
-    public boolean addSuggestion(User user, String content) {
-        String insertSQL = "INSERT INTO suggestion(userId, content) "
-                + "VALUES("
-                +  user.getUserId() + ", '"
-                +  content + "'"
-                + ")";
-        boolean flag = false;
-        Connection conn = null;
-        Statement stm = null;
-        try {
-            conn = DBUtil.getConnection();
-            stm = conn.createStatement();
-            int count = stm.executeUpdate(insertSQL);
-            if(count > 0) {
-                flag = true;
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeConnection(stm);
-        }
-        return flag;
     }
 
     @Override

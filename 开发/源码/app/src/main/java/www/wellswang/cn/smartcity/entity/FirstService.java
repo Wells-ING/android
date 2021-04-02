@@ -18,11 +18,11 @@ public class FirstService {
     // listClass
     private Integer listClass;
     // 是否是默认，例如：N
-    private Character isDefault;
+    private String isDefault;
     // default
     private Boolean Default;
     // 创建一级服务者
-    private User creteBy;
+    private User createBy;
     // 创建时间
     private Date createTime;
     // 更新一级服务者
@@ -33,8 +33,6 @@ public class FirstService {
     private String remark;
     // 状态
     private Integer status;
-    // 删除状态
-    private Integer delFlag;
 
     public Integer getDictCode() {
         return dictCode;
@@ -92,11 +90,11 @@ public class FirstService {
         this.listClass = listClass;
     }
 
-    public Character getIsDefault() {
+    public String getIsDefault() {
         return isDefault;
     }
 
-    public void setIsDefault(Character isDefault) {
+    public void setIsDefault(String isDefault) {
         this.isDefault = isDefault;
     }
 
@@ -108,12 +106,12 @@ public class FirstService {
         Default = aDefault;
     }
 
-    public User getCreteBy() {
-        return creteBy;
+    public User getCreateBy() {
+        return createBy;
     }
 
-    public void setCreteBy(User creteBy) {
-        this.creteBy = creteBy;
+    public void setCreateBy(User createBy) {
+        this.createBy = createBy;
     }
 
     public Date getCreateTime() {
@@ -156,11 +154,24 @@ public class FirstService {
         this.status = status;
     }
 
-    public Integer getDelFlag() {
-        return delFlag;
-    }
-
-    public void setDelFlag(Integer delFlag) {
-        this.delFlag = delFlag;
+    @Override
+    public String toString() {
+        return "FirstService{" +
+                "dictCode=" + dictCode +
+                ", dictLabel='" + dictLabel + '\'' +
+                ", dictValue=" + dictValue +
+                ", dictType='" + dictType + '\'' +
+                ", dictSort=" + dictSort +
+                ", cssClass=" + cssClass +
+                ", listClass=" + listClass +
+                ", isDefault='" + isDefault + '\'' +
+                ", Default=" + Default +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

@@ -12,15 +12,15 @@ public class Bus {
     // 下车站点
     private String end;
     // 开始运营时间
-    private Date startTime;
+    private String startTime;
     // 结束运营时间
-    private Date endTime;
+    private String endTime;
     // 价格
     private Double price;
     // 里程
     private Integer mileage;
     // 创建巴士路线者
-    private User creteBy;
+    private User createBy;
     // 创建时间
     private Date createTime;
     // 更新巴士路线信息者
@@ -62,19 +62,19 @@ public class Bus {
         this.end = end;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -94,12 +94,12 @@ public class Bus {
         this.mileage = mileage;
     }
 
-    public User getCreteBy() {
-        return creteBy;
+    public User getCreateBy() {
+        return createBy;
     }
 
-    public void setCreteBy(User creteBy) {
-        this.creteBy = creteBy;
+    public void setCreateBy(User createBy) {
+        this.createBy = createBy;
     }
 
     public Date getCreateTime() {
@@ -132,5 +132,24 @@ public class Bus {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "Bus{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", price=" + price +
+                ", mileage=" + mileage +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

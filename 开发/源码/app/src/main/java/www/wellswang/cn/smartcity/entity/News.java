@@ -22,7 +22,7 @@ public class News {
     // 观看人数
     private Integer viewsNumber;
     // 创建新闻者
-    private User creteBy;
+    private User createBy;
     // 创建时间
     private Date createTime;
     // 更新新闻者
@@ -34,7 +34,7 @@ public class News {
     // 推送状态
     private Integer pressStatus;
     // 删除状态
-    private Integer delFlag;
+    private String delFlag;
 
     public Integer getId() {
         return id;
@@ -84,14 +84,6 @@ public class News {
         this.imgUrl = imgUrl;
     }
 
-    public Boolean getRecommend() {
-        return isRecommend;
-    }
-
-    public void setRecommend(Boolean recommend) {
-        isRecommend = recommend;
-    }
-
     public Integer getLikeNumber() {
         return likeNumber;
     }
@@ -108,12 +100,20 @@ public class News {
         this.viewsNumber = viewsNumber;
     }
 
-    public User getCreteBy() {
-        return creteBy;
+    public Boolean getRecommend() {
+        return isRecommend;
     }
 
-    public void setCreteBy(User creteBy) {
-        this.creteBy = creteBy;
+    public void setRecommend(Boolean recommend) {
+        isRecommend = recommend;
+    }
+
+    public User getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(User createBy) {
+        this.createBy = createBy;
     }
 
     public Date getCreateTime() {
@@ -156,11 +156,33 @@ public class News {
         this.pressStatus = pressStatus;
     }
 
-    public Integer getDelFlag() {
+    public String getDelFlag() {
         return delFlag;
     }
 
-    public void setDelFlag(Integer delFlag) {
+    public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", pressCategory='" + pressCategory + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", isRecommend=" + isRecommend +
+                ", likeNumber=" + likeNumber +
+                ", viewsNumber=" + viewsNumber +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark='" + remark + '\'' +
+                ", pressStatus=" + pressStatus +
+                ", delFlag='" + delFlag + '\'' +
+                '}';
     }
 }

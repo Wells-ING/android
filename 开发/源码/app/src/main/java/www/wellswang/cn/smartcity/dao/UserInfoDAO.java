@@ -1,8 +1,5 @@
 package www.wellswang.cn.smartcity.dao;
 
-import java.util.ArrayList;
-
-import www.wellswang.cn.smartcity.entity.BusOrder;
 import www.wellswang.cn.smartcity.entity.User;
 
 public interface UserInfoDAO {
@@ -11,13 +8,9 @@ public interface UserInfoDAO {
 
     User getAllUserInfo(String username);
 
-    ArrayList<BusOrder> getAllBusOrderByUser(User user);
-
     User getUserIdByUsername(String username);
 
     boolean modifyPassword(User user, String newPassword);
-
-    boolean addSuggestion(User user, String content);
 
     boolean modifyFile(User user, String newFile);
 

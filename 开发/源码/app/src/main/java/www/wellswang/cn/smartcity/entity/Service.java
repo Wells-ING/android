@@ -18,7 +18,7 @@ public class Service {
     // 服务链接
     private String link;
     // 创建服务者
-    private User creteBy;
+    private User createBy;
     // 创建时间
     private Date createTime;
     // 更新服务者
@@ -86,12 +86,12 @@ public class Service {
         this.link = link;
     }
 
-    public User getCreteBy() {
-        return creteBy;
+    public User getCreateBy() {
+        return createBy;
     }
 
-    public void setCreteBy(User creteBy) {
-        this.creteBy = creteBy;
+    public void setCreateBy(User createBy) {
+        this.createBy = createBy;
     }
 
     public Date getCreateTime() {
@@ -132,5 +132,24 @@ public class Service {
 
     public void setPid(Integer pid) {
         this.pid = pid;
+    }
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id=" + id +
+                ", serviceName='" + serviceName + '\'' +
+                ", serviceDesc='" + serviceDesc + '\'' +
+                ", serviceType=" + serviceType +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", isRecommend=" + isRecommend +
+                ", link='" + link + '\'' +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark='" + remark + '\'' +
+                ", pid=" + pid +
+                '}';
     }
 }
