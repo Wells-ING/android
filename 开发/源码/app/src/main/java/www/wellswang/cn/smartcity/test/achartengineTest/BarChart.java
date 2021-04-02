@@ -1,4 +1,4 @@
-package www.wellswang.cn.smartcity.test.achartengine;
+package www.wellswang.cn.smartcity.test.achartengineTest;
 
 
 import java.util.Random;

@@ -1,8 +1,7 @@
-package www.wellswang.cn.smartcity.test.jdbc;
+package www.wellswang.cn.smartcity.test.jdbcTest;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import www.wellswang.cn.smartcity.utils.DBUtil;

@@ -1,4 +1,4 @@
-package www.wellswang.cn.smartcity.test.achartengine;
+package www.wellswang.cn.smartcity.test.achartengineTest;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.model.CategorySeries;

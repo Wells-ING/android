@@ -1,5 +1,7 @@
 package www.wellswang.cn.smartcity.entity;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 
 public class User {
@@ -10,9 +12,9 @@ public class User {
     // 用户身份
     private Integer roleId;
     // 用户名称
-    private String userName;
+    private String username;
     // 用户昵称
-    private String nickName;
+    private String nickname;
     // 密码
     private String password;
     // 邮箱
@@ -49,6 +51,19 @@ public class User {
     // 是否被删除
     private Integer delFlag;
 
+    public User() {
+
+    }
+
+    public User(String username) {
+        this.username = username;
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public Integer getUserId() {
         return userId;
     }
@@ -73,20 +88,20 @@ public class User {
         this.roleId = roleId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPassword() {
@@ -223,5 +238,33 @@ public class User {
 
     public void setDelFlag(Integer delFlag) {
         this.delFlag = delFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", deptId=" + deptId +
+                ", roleId=" + roleId +
+                ", username='" + username + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", password='" + password + '\'' +
+                ", emial='" + emial + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", sex=" + sex +
+                ", file='" + file + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", admin=" + admin +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", loginIp='" + loginIp + '\'' +
+                ", loginDate=" + loginDate +
+                ", remark='" + remark + '\'' +
+                ", status=" + status +
+                ", delFlag=" + delFlag +
+                '}';
     }
 }

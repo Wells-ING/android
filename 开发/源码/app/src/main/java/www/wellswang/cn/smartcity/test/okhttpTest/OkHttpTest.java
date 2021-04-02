@@ -1,4 +1,4 @@
-package www.wellswang.cn.smartcity.test.okhttp;
+package www.wellswang.cn.smartcity.test.okhttpTest;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package www.wellswang.cn.smartcity.test.asyncHttp;
+package www.wellswang.cn.smartcity.test.asyncHttpTest;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;

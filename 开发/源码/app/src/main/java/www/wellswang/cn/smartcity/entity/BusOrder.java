@@ -20,7 +20,7 @@ public class BusOrder {
     // 支付状态
     private Integer status;
     // 创建巴士订单者
-    private User creteBy;
+    private User createBy;
     // 创建时间
     private Date createTime;
     // 更新巴士订单信息者
@@ -94,12 +94,12 @@ public class BusOrder {
         this.status = status;
     }
 
-    public User getCreteBy() {
-        return creteBy;
+    public User getCreateBy() {
+        return createBy;
     }
 
-    public void setCreteBy(User creteBy) {
-        this.creteBy = creteBy;
+    public void setCreateBy(User createBy) {
+        this.createBy = createBy;
     }
 
     public Date getCreateTime() {
@@ -132,5 +132,24 @@ public class BusOrder {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "BusOrder{" +
+                "id=" + id +
+                ", orderNum='" + orderNum + '\'' +
+                ", userId=" + userId +
+                ", path='" + path + '\'' +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
+                ", price=" + price +
+                ", status=" + status +
+                ", createBy=" + createBy +
+                ", createTime=" + createTime +
+                ", updateBy=" + updateBy +
+                ", updateTime=" + updateTime +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

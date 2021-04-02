@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.okhttp.OkHttpTest" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <activity android:name=".test.okhttpTest.OkHttpTest" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
