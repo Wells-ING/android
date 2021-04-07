@@ -1,149 +1,96 @@
 package www.wellswang.cn.smartcity;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.widget.LinearLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import www.wellswang.cn.smartcity.adapter.LooperPagerAdapter;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-public class MainActivity extends AppCompatActivity implements MyViewPager.OnViewPagerTouchListener, ViewPager.OnPageChangeListener {
+    private Fragment fragment_home;
+    private Fragment fragment_service;
+    private Fragment fragment_protect;
+    private Fragment fragment_news;
+    private Fragment fragment_personal;
 
-    private MyViewPager myLooperPager;
-    private LooperPagerAdapter myLooperPagerAdapter;
+    private LinearLayout line_home;
+    private LinearLayout line_service;
+    private LinearLayout line_protect;
+    private LinearLayout line_news;
+    private LinearLayout line_personal;
 
-    // 轮播图数据
-    private static List<Integer> sPics = new ArrayList<>();
+    private ImageView iv_home;
+    private ImageView iv_service;
+    private ImageView iv_protect;
+    private ImageView iv_news;
+    private ImageView iv_personal;
 
-    private Handler myHandler;
-
-    // 控制触碰是否停止
-    private boolean myIsTouch = false;
-
-    LinearLayout myPointContainer;
-
-    static {
-        sPics.add(R.mipmap.pic1);
-        sPics.add(R.mipmap.pic2);
-        sPics.add(R.mipmap.pic3);
-        sPics.add(R.mipmap.pic4);
-    }
-
+    private TextView tv_home;
+    private TextView tv_service;
+    private TextView tv_protect;
+    private TextView tv_news;
+    private TextView tv_personal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // 初始化视图
-        initView();
-        myHandler = new Handler();
+
+        initView(); //初始化各个控件
+
+        initEvent(); //  初始化点击触发事件
+
+        initFragment(1);  // 初始化Fragment
+
 
     }
 
-    private void initView() {
-        // 1. 获取ViewPager
-        myLooperPager = (MyViewPager) this.findViewById(R.id.looper_pager);
-        // 2. 创建适配器
-        myLooperPagerAdapter = new LooperPagerAdapter();
-        // 3. 设置数据
-        myLooperPagerAdapter.setData(sPics);
-        // 4. 页面设置适配器
-        myLooperPager.setAdapter(myLooperPagerAdapter);
-        // 6. 设置触碰停止
-        myLooperPager.setOnViewPagerTouchListener(this);
-        // 添加页面监听器
-        myLooperPager.addOnPageChangeListener(this);
-        // 7. 根据图片的个数添加点的个数
-        myPointContainer = (LinearLayout)findViewById(R.id.points_container);
-        insertPoint();
-        // 5. 初始化向右滑动的最大次数
-        myLooperPager.setCurrentItem(myLooperPagerAdapter.getDataRealSize()*100, false);
-    }
 
-    private void insertPoint() {
-        for (int i = 0; i < sPics.size(); i++) {
-            View point = new View(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(40, 40);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                point.setBackground(getResources().getDrawable(R.drawable.shape_point_normal));
-            }
-            layoutParams.leftMargin = 20;
-            point.setLayoutParams(layoutParams);
-            myPointContainer.addView(point);
-        }
-    }
+    public void initView()
+    {
+        line_home = (LinearLayout) findViewById(R.id.line1);
+        line_service = (LinearLayout) findViewById(R.id.line2);
+        line_protect = (LinearLayout) findViewById(R.id.line3);
+        line_news = (LinearLayout) findViewById(R.id.line4);
+        line_personal = (LinearLayout) findViewById(R.id.line5);
 
-    @Override
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        // 当界面绑定窗口时
-        myHandler.post(myLooperTask);
-    }
+        iv_home = (ImageView) findViewById(R.id.ic_1);
+        iv_service = (ImageView) findViewById(R.id.ic_2);
+        iv_protect= (ImageView) findViewById(R.id.ic_3);
+        iv_news= (ImageView) findViewById(R.id.ic_4);
+        iv_personal= (ImageView) findViewById(R.id.ic_5);
 
-    @Override
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        myHandler.removeCallbacks(myLooperTask);
-    }
+        tv_home = (TextView) findViewById(R.id.textview_1);
+        tv_service = (TextView) findViewById(R.id.textview_2);
+        tv_protect = (TextView) findViewById(R.id.textview_3);
+        tv_news = (TextView) findViewById(R.id.textview_4);
+        tv_personal = (TextView) findViewById(R.id.textview_5);
 
-    private Runnable myLooperTask = new Runnable() {
-        @Override
-        public void run() {
-            if(!myIsTouch) {
-                // 切换viewPager里面的图片到下一个
-                int currentItem = myLooperPager.getCurrentItem();
-                myLooperPager.setCurrentItem(++currentItem, false);
-            }
-            myHandler.postDelayed(this, 3000);
-        }
-    };
-
-
-    @Override
-    public void onPagerTouch(boolean isTouch) {
-        myIsTouch = isTouch;
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
     }
 
-    @Override
-    public void onPageSelected(int position) {
-        // ViewPager停下来以后选中的位置
-        int realPosition;
-        if(myLooperPagerAdapter.getDataRealSize() != 0) {
-            realPosition = position % myLooperPagerAdapter.getDataRealSize();
+    private void initFragment(int index)
+    {
 
-        } else {
-            realPosition = 0;
-        }
-        setSelectPoint(realPosition);
     }
 
-    private void setSelectPoint(int realPosition) {
-        for (int i = 0; i < myPointContainer.getChildCount(); i++) {
-            View point = myPointContainer.getChildAt(i);
-            if(i != realPosition) {
-                // 白色
-                point.setBackgroundResource(R.drawable.shape_point_normal);
-            } else {
-                // 选中的颜色
-                point.setBackgroundResource(R.drawable.shape_point_selected);
-            }
-        }
+    private void initEvent() {
+        line_home.setOnClickListener(this);
+        line_service.setOnClickListener(this);
+        line_protect.setOnClickListener(this);
+        line_news.setOnClickListener(this);
+        line_personal.setOnClickListener(this);
     }
 
 
     @Override
-    public void onPageScrollStateChanged(int state) {
+    public void onClick(View v) {
+
+
 
     }
 }
